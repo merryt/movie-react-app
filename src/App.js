@@ -1,6 +1,7 @@
 import './App.css';
 import React, { PropTypes } from 'react';
 import Counter from './Counter';
+import { Accordian } from './Accordian';
 
 
 const Intro = ({ user = { name: "guy" } }) => {
@@ -24,6 +25,8 @@ const App = () => {
         <Intro />
         <p>hi</p>
         <Counter />
+        <Accordian />
+
       </header>
     </div>
   );
