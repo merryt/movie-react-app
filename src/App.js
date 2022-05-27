@@ -18,9 +18,13 @@ const App = () => {
     name: "tyler",
     email: "test@test.com"
   }
+
+  let intro = <h1>this is an example of html as a variable</h1>
+
   return (
     <div className="App">
       <header className="App-header">
+        {intro}
         <Intro user={user} />
         <Intro />
         <p>hi</p>
