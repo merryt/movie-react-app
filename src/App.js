@@ -1,4 +1,6 @@
 import './App.css';
+import React, { PropTypes } from 'react';
+import Counter from './Counter';
 
 
 const Intro = ({ user = { name: "guy" } }) => {
@@ -10,6 +12,7 @@ const Intro = ({ user = { name: "guy" } }) => {
 
 
 const App = () => {
+
   const user = {
     name: "tyler",
     email: "test@test.com"
@@ -20,6 +23,7 @@ const App = () => {
         <Intro user={user} />
         <Intro />
         <p>hi</p>
+        <Counter />
       </header>
     </div>
   );
