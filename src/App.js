@@ -2,12 +2,13 @@ import './App.css';
 import React, { PropTypes } from 'react';
 import Counter from './Counter';
 import { Accordian } from './Accordian';
+import ControlledInput from './ControlledInput';
 
 
 const Intro = ({ user = { name: "guy" } }) => {
 
   return (
-    <div>navigation, welcome back {user.name}</div>
+    <div>Navigation, welcome back {user.name}</div>
   )
 }
 
@@ -30,7 +31,7 @@ const App = () => {
         <p>hi</p>
         <Counter />
         <Accordian />
-
+        <ControlledInput />
       </header>
     </div>
   );
