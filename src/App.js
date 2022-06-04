@@ -1,13 +1,13 @@
 import './App.css';
-import React, { PropTypes, useState } from 'react';
-import MoviesList from './MoviesList';
-import { Search } from './Search'
+import React, { useState } from 'react';
+import MoviesList from './movies/MoviesList';
+import { Filter } from './Filter'
 
 
 const App = () => {
 
 
-  let [searchText, setSearchText] = useState("")
+  let [searchText, setSearchText] = useState("mang")
   const handleSearchChange = (updatedText) => {
     setSearchText(updatedText)
   }
@@ -16,7 +16,7 @@ const App = () => {
     <div className="App">
 
       <br />
-      <Search handleChange={handleSearchChange} />
+      <Filter handleChange={handleSearchChange} filter={searchText} />
       <MoviesList searchText={searchText} />
     </div>
   );
