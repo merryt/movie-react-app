@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import MovieCard from './MovieCard'
 import PropTypes from "prop-types"
 
 const MoviesList = ({ searchText }) => {
     const movies = ["supermang", "spidermang", "shrek"]
+    const ulRef = useRef(null)
+    console.log(ulRef)
+
+
     return (
         <div>
-            <ul>
+            <ul ref={ulRef}>
                 {
                     movies.filter((movie) =>
                         movie.toLowerCase().includes(searchText.toLowerCase())

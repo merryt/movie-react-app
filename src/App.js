@@ -5,9 +5,9 @@ import { Filter } from './Filter'
 
 
 const App = () => {
-
-
   let [searchText, setSearchText] = useState("mang")
+
+
   const handleSearchChange = (updatedText) => {
     setSearchText(updatedText)
   }
