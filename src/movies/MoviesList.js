@@ -1,5 +1,6 @@
 import React from 'react'
-import { MovieCard } from './MovieCard'
+import MovieCard from './MovieCard'
+import PropTypes from "prop-types"
 
 const MoviesList = ({ searchText }) => {
     const movies = ["supermang", "spidermang", "shrek"]
@@ -12,10 +13,12 @@ const MoviesList = ({ searchText }) => {
                     ).map(item => <MovieCard movie={item} key={item} />)
                 }
             </ul>
-            <MovieCard />
-            <MovieCard movie="2" />
         </div>
     )
 }
+
+MoviesList.propTypes = {
+    searchText: PropTypes.string.isRequired,
+};
 
 export default MoviesList

@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie }) => {
     return (
         <li key={movie}> {movie} </li>
     )
 }
 
-MovieCard.prototype = {
-    movie: PropTypes.string.isRequired
+MovieCard.propTypes = {
+    movie: PropTypes.string.isRequired,
 }
+
+export default MovieCard
