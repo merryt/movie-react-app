@@ -4,15 +4,17 @@ import PropTypes from "prop-types"
 import MOVIE_API_KEY from "../env"
 
 
-const MoviesList = ({ searchText }) => {
+const MoviesList = ({ searchText, count }) => {
     const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${MOVIE_API_KEY}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
     const [movies, setMovies] = useState([])
+    const [currentMovies, setCurrentMovies] = useState([])
 
     const getMovies = async () => {
         try {
             const res = await fetch(API_URL)
             const movies = await res.json()
             setMovies(movies.results)
+            setCurrentMovies(movies.results)
         } catch (e) {
             console.log(e)
         }
@@ -23,15 +25,20 @@ const MoviesList = ({ searchText }) => {
         // empty array acts as mount
     }, [])
 
+    useEffect(() => {
+        const filteredMovies = movies.filter((movie) =>
+            movie.original_title.toLowerCase().includes(searchText.toLowerCase())
+        )
+        setCurrentMovies(filteredMovies.slice(0, count))
+        console.log(count)
+    }, [searchText, count, movies])
+
 
 
     return (
-        <div>
+        <div className="movieList">
             {
-                movies.filter((movie) =>
-                    movie.original_title.toLowerCase().includes(searchText.toLowerCase())
-                )
-                    .map(item => <MovieCard movie={item} key={item.id} />)
+                currentMovies.map(item => <MovieCard movie={item} key={item.id} />)
             }
         </div>
     )
